@@ -41,6 +41,7 @@ func New(cfg *config.Config, log *slog.Logger) (*Broker, error) {
 		"bootstrap.servers": cfg.Kafka.KafkaURL,
 		"group.id":          cfg.Kafka.GroupID,
 		"auto.offset.reset": "earliest",
+		"fetch.min.bytes":   "600",
 	})
 	if err != nil {
 		return nil, err

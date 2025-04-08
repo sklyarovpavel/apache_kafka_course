@@ -1,4 +1,4 @@
-package pull
+package batch
 
 import (
 	"context"
@@ -41,6 +41,7 @@ func New(cfg *config.Config, log *slog.Logger) (*Broker, error) {
 		"group.id":           cfg.Kafka.GroupID,
 		"enable.auto.commit": false,
 		"auto.offset.reset":  "earliest",
+		"fetch.min.bytes":    "600",
 	})
 	if err != nil {
 		return nil, err

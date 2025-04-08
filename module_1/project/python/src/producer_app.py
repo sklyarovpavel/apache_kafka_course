@@ -33,7 +33,7 @@ def produce():
     producer = Producer(producer_conf)
 
     try:
-        for i in range(1, 11):
+        for i in range(1, 100):
             logger.info(f"Preparing to send message number {i}")
             message = Message(f"user123{random.randint(1, 100)}", "Hello Kafka!")
 

@@ -27,9 +27,9 @@ func Fabric() (StartGetConfigStopper, error) {
 	switch cfg.Kafka.Type {
 	case "producer":
 		return producer.New(cfg, log)
-	case "consumer-push":
+	case "consumer-single":
 		return consumer.New(cfg, log)
-	case "consumer-pull":
+	case "consumer-batch":
 		return consumer.New(cfg, log)
 	default:
 		return nil, ErrWrongType

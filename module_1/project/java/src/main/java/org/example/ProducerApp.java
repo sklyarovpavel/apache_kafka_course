@@ -26,7 +26,7 @@ public class ProducerApp {
         props.put(ProducerConfig.ACKS_CONFIG, "all"); // гарантия «at-least-once»
         props.put(ProducerConfig.RETRIES_CONFIG, 3);  // поведение при сбое
 
-        for (int i = 1; i < 11; i++) {
+        for (int i = 1; i < 100; i++) {
             logger.info(String.format("Preparing to send message number %s", i));
             try (KafkaProducer<String, String> producer = new KafkaProducer<>(props)) {
 

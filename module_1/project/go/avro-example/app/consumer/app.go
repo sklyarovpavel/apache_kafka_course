@@ -5,8 +5,8 @@ import (
 	"log/slog"
 	"time"
 
-	consumerpull "github.com/apache_kafka_course/module1/go/avro-example/internal/broker/consumer/pull"
-	consumerpush "github.com/apache_kafka_course/module1/go/avro-example/internal/broker/consumer/push"
+	consumerpull "github.com/apache_kafka_course/module1/go/avro-example/internal/broker/consumer/batch"
+	consumerpush "github.com/apache_kafka_course/module1/go/avro-example/internal/broker/consumer/single"
 	"github.com/apache_kafka_course/module1/go/avro-example/internal/config"
 )
 
@@ -22,7 +22,7 @@ type App struct {
 }
 
 func New(cfg *config.Config, log *slog.Logger) (*App, error) {
-	if cfg.Kafka.Type == "consumer-push" {
+	if cfg.Kafka.Type == "consumer-batch" {
 		cons, err := consumerpush.New(cfg, log)
 		if err != nil {
 			return nil, err
